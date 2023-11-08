@@ -5,7 +5,11 @@ import {Option, Question, Result} from "../components";
 
 
 export const Quiz = () => {
-  const {id} = useParams();
+  
+// Extract the 'id' from the URL parameters using React Router.
+  const { id } = useParams();
+
+  // Initialize state variables to manage quiz data and progress.
   const [questions, setQuestions] = useState<Question[]>([]);
   const [selectedQuestionIndex, setSelectedQuestionIndex] = useState(0);
   const [selectedOptionId, setSelectedOptionId] = useState("");
@@ -13,20 +17,22 @@ export const Quiz = () => {
   const [isFinished, setIsFinished] = useState(false);
   const [correctCount, setCorrectCount] = useState(0);
 
+  // Use the 'useEffect' hook to fetch quiz questions when the component mounts.
   useEffect(() => {
     const getQuiz = async () => {
       const response = await fetch(`${BASE_URL}/quiz/${id}`).then((response) =>
-          response.json()
+        response.json()
       );
       setQuestions(response.questions);
     };
     getQuiz();
-
-  }, []);
+  }, []); // The empty dependency array ensures this effect runs only once.
+  
+  // Function to handle option selection and check correctness.
   const onSelectOption = async (questionId: string, optionId: string) => {
     setSelectedOptionId(optionId);
     const response = await fetch(
-        `${BASE_URL}/quiz/${id}/question/${questionId}`
+      `${BASE_URL}/quiz/${id}/question/${questionId}`
     ).then((response) => response.json());
 
     setCorrectOptionId(response.correctOption);
@@ -35,12 +41,15 @@ export const Quiz = () => {
     }
   };
 
+  // Get the currently selected question.
   const selectedQuestion = questions[selectedQuestionIndex];
 
+  // If no question is available, return an empty fragment.
   if (!selectedQuestion) {
     return <></>;
   }
 
+  // Function to move to the next question.
   const next = () => {
     if (selectedQuestionIndex < questions.length - 1) {
       setSelectedQuestionIndex(selectedQuestionIndex + 1);
@@ -49,14 +58,17 @@ export const Quiz = () => {
     }
   };
 
+  // Function to finish the quiz.
   const finish = () => {
     setIsFinished(true);
   };
 
+  // If the quiz is finished, display the result.
   if (isFinished) {
     return <Result correct={correctCount} total={questions.length} />;
   }
 
+  // Render the current question and options.
   return (
       <div className="p-4 w-full md:w-96 m-auto">
         <Question

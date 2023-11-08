@@ -45,7 +45,7 @@ yarn: https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable
 
 Otherwise, just use TBD! [React playground](https://codesandbox.io/s/quiz-app-bziuiv).
 
-[The final branch]() TBD! has the final game that we play at the end of the workshop.
+[The final branch](https://github.com/KatarinaLang/codepub-quiz/tree/final) has the final game that we play at the end of the workshop.
 
 The template consists of multiple React TypeScript files, where each file represents a [**React component with props**](https://reactjs.org/docs/components-and-props.html).
 - The `App.tsx` component routes the path  `/` to the `home.tsx` component and `quiz/:id` to the `quiz.tsx` component.
@@ -63,7 +63,7 @@ Note that this url does not contain the correct option but rather the `${BASE_UR
 
 ## Inspection
 
-Inspecting the example url [`${BASE_URL}/quiz/quiz-1`](https://497z886l6a.execute-api.eu-central-1.amazonaws.com/prod/quiz/quiz-1) and the `question.tsx` component,  we see that the response to the url is a json containing a list of `Question` in the field `questions`, which corresponds to the `QuestionProps` interface.
+Inspecting the example url [`${BASE_URL}/quiz/0`](https://c5stn0nvzd.execute-api.eu-central-1.amazonaws.com/test/quiz/0) and the `question.tsx` component,  we see that the response to the url is a json containing a list of `Question` in the field `questions`, which corresponds to the `QuestionProps` interface.
 ```
 // question.tsx
 /**
@@ -474,8 +474,7 @@ Set `isFinished` to true when the quiz is over and display the `Result` componen
 ```
 
 ---
-# [**The final Quiz app**](shorturl.at/LTY15)
-The source code for the final quiz app can be found in the final branch. The code is cleaned up and includes expansions such as enabling multiple people to join in the same quiz by entering the quiz id and a username, storing a database of multiple quizzes, storing the username, score and time for the high score board. The final quiz game can be played [here](http://shorturl.at/LTY15) with the code `codepub2022`. The high score board can be seen [here](http://codepub-quiz.s3-website.eu-central-1.amazonaws.com/admin) with the password `codepub.admin`.
+## The final Quiz app
 
 The architecture of the backend and frontend is as follows:
 
@@ -486,4 +485,4 @@ We hope you had fun creating and playing the quiz!
 ![The quiz app](./images/final-quiz.png "The quiz app")
 
 ---
-Created by [Zehra Karakaş](https://www.linkedin.com/in/zehrakarakas/). Feel free to ask me questions!
+Created by [Zehra Karakaş](https://www.linkedin.com/in/zehrakarakas/). Feel free to ask questions!

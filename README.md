@@ -37,15 +37,40 @@ The steps are divided into **Inspection** (explanation and hints) and **Implemen
 
 ---
 
+### Setup 
+You can either run the workshop locally using your own IDE and install the pre-requisites. Otherwise, just use [React playground](https://codesandbox.io/s/quiz-app-forked-hjhjdc). 
+
+<details>
+<summary>IDE on your computer</summary>
+
 If you are using an internal editor on your computer, you can fetch the basic project from this github repository on [the baseline branch](https://github.com/KatarinaLang/codepub-quiz/tree/baseline). The prerequisites are the following:
 ```
 nodejs: https://nodejs.org/en/
 yarn: https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable
 ```
 
-Otherwise, just use TBD! [React playground](https://codesandbox.io/s/quiz-app-bziuiv).
+```
+npm install # to install all dependencies 
+npm run dev # to start local development server
+```
+Navigate to [http://localhost:5173](http://localhost:5173) to access your application. 
+</details>
 
+---
+
+<details>
+<summary>React Playground</summary>
+- Go to [React playground](https://codesandbox.io/s/quiz-app-forked-hjhjdc)
+- Everythng is pre-installed and you can start coding in your browser. 
+
+</details>
+
+---
+
+### Final Quiz 
 [The final branch](https://github.com/KatarinaLang/codepub-quiz/tree/final) has the final game that we play at the end of the workshop.
+
+### Template and Workshop Process
 
 The template consists of multiple React TypeScript files, where each file represents a [**React component with props**](https://reactjs.org/docs/components-and-props.html).
 - The `App.tsx` component routes the path  `/` to the `home.tsx` component and `quiz/:id` to the `quiz.tsx` component.
